@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+
+    <persistence-unit name="TOUR_AGENCY_PU_JPA_TEST">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <!-- names of the JPAEntities -->
+        <!-- <class>% name of entity 1%</class> -->
+        <!-- <class>% name of entity 2% etc.</class> -->
+        <!-- <class>Passenger</class> -->
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <!-- note, sometimes <exclude-unlisted-classes> does not work -->
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://slon.felk.cvut.cz:5432/zubkovla"/>
+            <property name="javax.persistence.jdbc.user" value="zubkovla"/>
+            <property name="javax.persistence.jdbc.password" value="zubkovla_DBS212"/>
+
+            <!-- create database schema from JPAEntities -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <!-- <property name="eclipselink.ddl-generation" value="create-tables"/>-->
+            <!-- <property name="eclipselink.logging.level" value="CONFIG"/>-->
+
+            <!-- EclipseLink drops the entire EntityManager cache -->
+            <property name="eclipselink.flush-clear.cache" value="drop"/>
+            <!-- <property name="eclipselink.query-results-cache" value="false"/>-->
+
+            <!-- <property name="eclipselink.weaving" value="static"/> -->
+        </properties>
+    </persistence-unit>
+</persistence>
+
+        <!-- source: -->
+        <!-- https://pastebin.com/XuQT6ZjT -->
